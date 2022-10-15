@@ -42,3 +42,7 @@
   text-decoration: none;
   color: white;
 }
+.signupScreen > form > h4 > a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
