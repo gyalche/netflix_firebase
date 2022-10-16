@@ -8,6 +8,7 @@ import { auth } from './firebase';
 import { useDispatch, useSelector } from 'react-redux';
 import { login, logout, selectUser } from './features/userSlice';
 import ProfileScreen from './screen/ProfileScreen';
+import SignInScreen from './screen/SignInScreen';
 
 function App() {
   const user = useSelector(selectUser);
@@ -17,16 +18,16 @@ function App() {
       console.log(currentUser);
       dispatch(
         login({
-          uid: currentUser.uid,
-          email: currentUser.email,
+          uid: currentUser?.uid,
+          email: currentUser?.email,
         })
       );
     });
     return () => {
       unsubscribe();
-      dispatch(logout);
+      dispatch(logout());
     };
-  }, []);
+  }, [dispatch]);
   return (
     <div className="App">
       <Router>
